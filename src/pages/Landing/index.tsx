@@ -8,7 +8,10 @@ import About from './about';
 const LandingPage = () => {
 	return (
 		<div>
-			<div className="bg-farmer-landing min-h-[8rem] py-20 bg-bottom bg-scroll">
+			<div
+				style={{ backgroundImage: `url(https://i.ibb.co/hyVnCcf/farmer-landing.png)` }}
+				className=" min-h-[8rem] py-20 bg-bottom bg-scroll"
+			>
 				<h1 className="text-7xl text-center font-medium text-blue-500 mb-2">Pata Shamba</h1>
 				<h2 className="text-xl text-center text-white mt-2 mb-6">Find Leased Land With Ease</h2>
 				<div>
