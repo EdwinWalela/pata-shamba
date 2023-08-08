@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import locationIcon from '../../assets/location-pin.svg';
 
 const PropertyCard = (props: any) => {
@@ -17,9 +18,11 @@ const PropertyCard = (props: any) => {
 				<h3 className="mt-2 font-medium text-blue-500">
 					KES {props.data.price} <span className="text-gray-600 text-sm ml-1">/ Year </span>
 				</h3>
-				<button className="text-center block w-full my-2 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
-					View
-				</button>
+				<NavLink to="/view">
+					<button className="text-center block w-full my-2 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
+						View
+					</button>
+				</NavLink>
 			</div>
 		</div>
 	);
