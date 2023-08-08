@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import locationIcon from '../../assets/location-pin.svg';
 import priceIcon from '../../assets/pricetag.svg';
 import PropertyCard from './propertyCard';
@@ -43,9 +43,11 @@ const LandingPage = () => {
 								/>
 							</div>
 						</div>
-						<button className="text-center block w-1/2 mx-auto my-3 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
-							Search
-						</button>
+						<NavLink to="/search">
+							<button className="text-center block w-1/2 mx-auto my-3 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
+								Search
+							</button>
+						</NavLink>
 					</form>
 				</div>
 			</div>

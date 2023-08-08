@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import NotFoundPage from './pages/Notfound';
 import NavBar from './layout/Navbar';
 import Footer from './layout/Footer';
+import SearchResults from './pages/SearchResults';
 
 const App = () => {
 	return (
@@ -16,9 +17,7 @@ const App = () => {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/sign-up" element={<RegisterPage />} />
-				<Route path="/dashboard">
-					<Route index element={<DashboardPage />} />
-				</Route>
+				<Route path="/search" element={<SearchResults />} />
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 			<Footer />
