@@ -37,7 +37,6 @@ const SearchResults = () => {
 				</button>
 			</form>
 			<Cards />
-			<Cards />
 		</div>
 	);
 };

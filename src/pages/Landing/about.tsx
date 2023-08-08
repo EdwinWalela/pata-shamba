@@ -49,7 +49,7 @@ const About = () => {
 			</div>
 			<NavLink to="/search">
 				<button className="text-center block md:w-1/5 w-3/4 mx-auto md:mt-14 md:mt-0 md:relative md:bottom-32 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
-					Get Started
+					View Market Place
 				</button>
 			</NavLink>
 		</div>
