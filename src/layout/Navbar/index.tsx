@@ -17,13 +17,13 @@ const NavBar = () => {
 			<div className="flex-1 hidden md:block">
 				<ul className="text-center pt-1">
 					<li className="inline-block mx-14 font-medium">
-						<Link to="#">Market Place</Link>
+						<Link to="/search">Market Place</Link>
 					</li>
 					<li className="inline-block mx-14 font-medium">
 						<Link to="#">Pricing</Link>
 					</li>
 					<li className="inline-block mx-14 font-medium">
-						<Link to="#">About</Link>
+						<a href="#about">About</a>
 					</li>
 				</ul>
 			</div>
@@ -39,7 +39,7 @@ const NavBar = () => {
 					>
 						Sign In
 					</NavLink>
-					{!home && (
+					{/* {!home && (
 						<NavLink
 							to="/sign-up"
 							className={({ isActive }) =>
@@ -50,7 +50,7 @@ const NavBar = () => {
 						>
 							Sign Up
 						</NavLink>
-					)}
+					)} */}
 				</div>
 			)}
 		</div>

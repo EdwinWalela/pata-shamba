@@ -4,10 +4,11 @@ import ussdIcon from '../../assets/ussd.json';
 import verifiedIcon from '../../assets/verified.json';
 
 import Lottie from 'lottie-react';
+import { NavLink } from 'react-router-dom';
 
 const About = () => {
 	return (
-		<div className="p-10 ">
+		<div className="p-10" id="about">
 			<h1 className="text-3xl mb-2 text-center pr-4">How it Works</h1>
 			<div className="border-blue-500 border-b-4 my-2 w-20 block mx-auto"></div>
 			<p className="text-gray-500 mb-4 mt-4 text-center">
@@ -46,9 +47,11 @@ const About = () => {
 					</p>
 				</div>
 			</div>
-			<button className="text-center block md:w-1/5 w-3/4 mx-auto md:mt-14 md:mt-0 md:relative md:bottom-32 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
-				Get Started
-			</button>
+			<NavLink to="/search">
+				<button className="text-center block md:w-1/5 w-3/4 mx-auto md:mt-14 md:mt-0 md:relative md:bottom-32 py-2 bg-blue-500 text-white hover:text-blue-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-blue-500">
+					Get Started
+				</button>
+			</NavLink>
 		</div>
 	);
 };
