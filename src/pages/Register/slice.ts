@@ -29,27 +29,7 @@ export const registerSlice = createSlice({
 	name: 'register-slice',
 	initialState,
 	reducers: {},
-	extraReducers: (builder) => {
-		builder.addCase(registerUser.pending, (state, action) => {
-			state.isLoading = true;
-			state.hasError = false;
-			state.errorMessage = '';
-			state.registerSuccess = false;
-		});
-		builder.addCase(registerUser.fulfilled, (state, action) => {
-			state.isLoading = false;
-			state.hasError = false;
-			state.errorMessage = '';
-			state.registerSuccess = true;
-		});
-		builder.addCase(registerUser.rejected, (state, action) => {
-			state.isLoading = false;
-			state.hasError = true;
-			state.errorMessage = '';
-
-			state.registerSuccess = false;
-		});
-	},
+	extraReducers: (builder) => {},
 });
 
 export default registerSlice.reducer;

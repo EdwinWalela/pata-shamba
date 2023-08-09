@@ -11,6 +11,8 @@ export interface CreateSurveyInitialState {
 	activePage: number;
 }
 
+export interface RegisterInitialState {}
+
 export interface LandDetailInitialState {
 	location: string;
 	description: string;
