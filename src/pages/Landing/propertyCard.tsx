@@ -3,7 +3,7 @@ import locationIcon from '../../assets/location-pin.svg';
 
 const PropertyCard = (props: any) => {
 	return (
-		<div className="md:w-full shadow-xl py-4 mx-4 my-10 md:my-0">
+		<div className="md:w-full bg-white shadow-xl py-4 mx-4 my-10 md:my-0">
 			<div className="px-6">
 				<h1 className="font-medium">
 					<span>
