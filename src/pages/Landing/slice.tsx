@@ -12,19 +12,21 @@ const initialState = {
 	searchResults: [],
 } as LandingInitialState;
 
-export const fetchTopPicks = createAsyncThunk('landing/lands', async ({}, { rejectWithValue }) => {
-	let res;
-	try {
-		res = await api.fetchAllLands();
-		//TODO: filter lands to pick only 3
-	} catch (error: any) {
-		return rejectWithValue(error.message);
+export const fetchTopPicks = createAsyncThunk(
+	'landing/lands',
+	async (payload: {}, { rejectWithValue }) => {
+		let res;
+		try {
+			res = await api.fetchAllLands();
+		} catch (error: any) {
+			return rejectWithValue(error.message);
+		}
+		return res.data;
 	}
-	return res;
-});
+);
 
 export const searchLands = createAsyncThunk(
-	'landing/search-lands',
+	'landing/search-land',
 	async (payload: { price: number; location: string }, { rejectWithValue }) => {
 		let res;
 		try {
@@ -50,6 +52,9 @@ export const landingSlice = createSlice({
 			state.isLoading = false;
 			state.hasError = false;
 			state.errorMessage = '';
+			let lands = action.payload.slice(0, 4).filter((land: any) => land.status == 'true');
+
+			state.topPicks = lands;
 		});
 		builder.addCase(fetchTopPicks.rejected, (state, action) => {
 			state.isLoading = false;

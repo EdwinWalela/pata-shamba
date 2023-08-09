@@ -8,6 +8,7 @@ const RecentlyAdded = () => {
 			title: '',
 			location: 'Namanga Rd, Kitengela',
 			size: 3,
+			land: {},
 		},
 		{
 			price: '250,000',
@@ -40,10 +41,10 @@ const RecentlyAdded = () => {
 					Report This Listing
 				</button>
 			</div>
-			<h1 className="font-medium text-sm pl-6 my-4">Recently Added</h1>
-			<PropertyCard data={properties[0]} />
+			{/* <h1 className="font-medium text-sm pl-6 my-4">Recently Added</h1> */}
+			{/* <PropertyCard data={properties[0]} />
 			<div className="my-5"></div>
-			<PropertyCard data={properties[0]} />
+			<PropertyCard data={properties[0]} /> */}
 		</div>
 	);
 };

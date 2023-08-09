@@ -24,7 +24,9 @@ const Search = () => {
 		navigate('/search');
 	}
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		dispatch(searchLands({ location, price }));
+	}, []);
 	return (
 		<div>
 			<form className="mx-auto py-2 bg-white md:w-2/5 w-3/4">

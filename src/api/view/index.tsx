@@ -13,30 +13,10 @@ const fetchAllLands = async () => {
 	return response.data;
 };
 
-const fetchLandById = async (id: string | undefined) => {
-	let response;
-	try {
-		response = await axios.get(`${BASE_URL}/lands/${id}`);
-	} catch (error: any) {
-		throw new Error(`Failed to fetch lands. Please try again `);
-	}
-	return response.data;
-};
-
-const approveLand = async (id: string) => {
-	let response;
-	try {
-		response = await axios.patch(`${BASE_URL}/lands/${id}`);
-	} catch (error: any) {
-		throw new Error(`Failed to approve land. Please try again `);
-	}
-	return response.data;
-};
-
 const searchLands = async (price: number, location: string) => {
 	let response;
 	try {
-		response = await axios.get(`${BASE_URL}/lands`);
+		response = await axios.get(`${BASE_URL}/lands?price=${price}&location=${location}`);
 	} catch (error: any) {
 		throw new Error(`Failed to fetch lands. Please try again `);
 	}
@@ -46,6 +26,4 @@ const searchLands = async (price: number, location: string) => {
 export default {
 	fetchAllLands,
 	searchLands,
-	fetchLandById,
-	approveLand,
 };

@@ -29,7 +29,7 @@ const NavBar = () => {
 			</div>
 			{!token && !respondent && (
 				<div className="pt-1 md:ml-0 ml-auto">
-					<NavLink
+					{/* <NavLink
 						to="/login"
 						className={({ isActive }) =>
 							!isActive
@@ -38,7 +38,7 @@ const NavBar = () => {
 						}
 					>
 						Sign In
-					</NavLink>
+					</NavLink> */}
 					{/* {!home && (
 						<NavLink
 							to="/sign-up"

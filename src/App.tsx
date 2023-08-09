@@ -28,7 +28,7 @@ const App = () => {
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/sign-up" element={<RegisterPage />} />
 				<Route path="/search" element={<SearchResults />} />
-				<Route path="/view" element={<View data={properties[0]} />} />
+				<Route path="/view/:id" element={<View data={properties[0]} />} />
 				<Route path="/dashboard" element={<DashboardPage />} />
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>

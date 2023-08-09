@@ -9,7 +9,7 @@ const LandingPage = () => {
 	const dispatch = useAppDispatch();
 	const topPicks = useAppSelector((state) => state.landingState.topPicks);
 	useEffect(() => {
-		dispatch(fetchTopPicks());
+		dispatch(fetchTopPicks({}));
 	}, []);
 	return (
 		<div>

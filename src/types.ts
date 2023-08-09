@@ -11,13 +11,14 @@ export interface CreateSurveyInitialState {
 	activePage: number;
 }
 
-export interface SurveyInitialState {
-	title: string;
+export interface LandDetailInitialState {
+	location: string;
 	description: string;
-	questions: SurveyQuestion[];
+	size: string;
+	phone: string;
+	price: string;
+	rate: string;
 	isLoading: boolean;
-	hasError: boolean;
-	errorMessage: string;
 }
 
 export interface Survey {
@@ -37,6 +38,10 @@ export interface LandingInitialState {
 	errorMessage: '';
 	topPicks: LandData[];
 	searchResults: LandData[];
+}
+
+export interface DashboardInitialState {
+	pendingLands: LandData[];
 }
 
 interface LandData {

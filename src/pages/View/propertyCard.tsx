@@ -51,7 +51,7 @@ const PropertyCard = (props: any) => {
 				</div>
 				<RecentlyAdded />
 			</div>
-			<Suggestions />
+			{/* <Suggestions /> */}
 		</div>
 	);
 };
