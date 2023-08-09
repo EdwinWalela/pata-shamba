@@ -29,6 +29,7 @@ const App = () => {
 				<Route path="/sign-up" element={<RegisterPage />} />
 				<Route path="/search" element={<SearchResults />} />
 				<Route path="/view" element={<View data={properties[0]} />} />
+				<Route path="/dashboard" element={<DashboardPage />} />
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 			<Footer />

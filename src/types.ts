@@ -29,14 +29,22 @@ export interface Survey {
 	token: string;
 }
 
-export interface RegisterInitialState {
-	email: string;
-	password: string;
-	phone: string;
+export interface LandingInitialState {
+	searchLocation: string;
+	searchPrice: number;
 	isLoading: boolean;
 	hasError: boolean;
 	errorMessage: '';
-	registerSuccess: boolean;
+	topPicks: LandData[];
+}
+
+interface LandData {
+	location: string;
+	size: string;
+	description: string;
+	price: string;
+	rate: string;
+	id: number;
 }
 
 export interface LoginInitialState {

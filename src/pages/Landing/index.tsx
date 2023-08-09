@@ -4,8 +4,16 @@ import priceIcon from '../../assets/pricetag.svg';
 import PropertyCard from './propertyCard';
 import TopPicks from './topPicks';
 import About from './about';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchTopPicks } from './slice';
 
 const LandingPage = () => {
+	const dispatch = useAppDispatch();
+	const topPicks = useAppSelector((state) => state.landingState.topPicks);
+	useEffect(() => {
+		dispatch(fetchTopPicks());
+	}, []);
 	return (
 		<div>
 			<div
@@ -51,7 +59,7 @@ const LandingPage = () => {
 					</form>
 				</div>
 			</div>
-			<TopPicks />
+			<TopPicks lands={topPicks} />
 			<About />
 		</div>
 	);

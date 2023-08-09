@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import registerReducer from '../pages/Register/slice';
+import landingReducer from '../pages/Landing/slice';
 import loginReducer from '../pages/Login/slice';
 
 export const store = configureStore({
 	reducer: {
-		register: registerReducer,
+		landingState: landingReducer,
 		login: loginReducer,
 	},
 });

@@ -1,6 +1,6 @@
 import PropertyCard from './propertyCard';
 
-const TopPicks = () => {
+const TopPicks = (props: any) => {
 	const properties = [
 		{
 			price: '250,000',
@@ -29,14 +29,13 @@ const TopPicks = () => {
 			size: 0.5,
 		},
 	];
-
 	return (
 		<div className="p-10">
 			<h1 className="text-2xl mb-6 text-center md:text-left">Top Picks</h1>
 			<div className="md:flex justify-center">
-				<PropertyCard data={properties[0]} />
-				<PropertyCard data={properties[1]} />
-				<PropertyCard data={properties[2]} />
+				{props.lands.map((data: any, index: any) => {
+					<PropertyCard data={data} />;
+				})}
 			</div>
 		</div>
 	);
