@@ -2,7 +2,6 @@ import './App.css';
 import DashboardPage from './pages/Dashboard';
 import LandingPage from './pages/Landing';
 import LoginPage from './pages/Login';
-import RegisterPage from './pages/Register';
 import { Route, Routes } from 'react-router-dom';
 import NotFoundPage from './pages/Notfound';
 import NavBar from './layout/Navbar';
@@ -26,7 +25,6 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/login" element={<LoginPage />} />
-				<Route path="/sign-up" element={<RegisterPage />} />
 				<Route path="/search" element={<SearchResults />} />
 				<Route path="/view/:id" element={<View data={properties[0]} />} />
 				<Route path="/dashboard" element={<DashboardPage />} />
