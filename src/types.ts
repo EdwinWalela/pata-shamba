@@ -36,6 +36,7 @@ export interface LandingInitialState {
 	hasError: boolean;
 	errorMessage: '';
 	topPicks: LandData[];
+	searchResults: LandData[];
 }
 
 interface LandData {

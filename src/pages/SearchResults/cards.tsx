@@ -1,6 +1,10 @@
 import PropertyCard from '../Landing/propertyCard';
+import Lottie from 'lottie-react';
+import noListingIcon from '../../assets/no-listing.json';
+import loadingIcon from '../../assets/loading.json';
+import { useAppSelector } from '../../hooks';
 
-const Cards = () => {
+const Cards = (props: any) => {
 	const properties = [
 		{
 			price: '250,000',
@@ -29,13 +33,25 @@ const Cards = () => {
 			size: 0.5,
 		},
 	];
-
+	const isLoading = useAppSelector((state) => state.landingState.isLoading);
 	return (
 		<div className="p-10">
+			{isLoading && (
+				<>
+					<Lottie animationData={loadingIcon} className="w-40 block mx-auto" />
+					<h1 className="block text-center font-medium text-lg">Loading</h1>
+				</>
+			)}
+			{!isLoading && props.data.length == 0 && (
+				<>
+					<Lottie animationData={noListingIcon} className="w-80 block mx-auto" />
+					<h1 className="block text-center font-medium text-lg">No Results Found </h1>
+				</>
+			)}
 			<div className="md:flex justify-center">
-				<PropertyCard data={properties[0]} />
-				<PropertyCard data={properties[1]} />
-				<PropertyCard data={properties[2]} />
+				{props.data.map((property: any, index: any) => {
+					<PropertyCard data={property} />;
+				})}
 			</div>
 		</div>
 	);

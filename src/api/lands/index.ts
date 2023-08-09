@@ -13,6 +13,17 @@ const fetchAllLands = async () => {
 	return response.data;
 };
 
+const searchLands = async (price: number, location: string) => {
+	let response;
+	try {
+		response = await axios.get(`${BASE_URL}/lands?price=${price}&location=${location}`);
+	} catch (error: any) {
+		throw new Error(`Failed to fetch lands. Please try again `);
+	}
+	return response.data;
+};
+
 export default {
 	fetchAllLands,
+	searchLands,
 };
