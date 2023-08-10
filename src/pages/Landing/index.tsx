@@ -12,7 +12,7 @@ const LandingPage = () => {
 		dispatch(fetchTopPicks({}));
 	}, []);
 	return (
-		<div>
+		<div className="">
 			<div
 				style={{ backgroundImage: `url(https://i.ibb.co/hyVnCcf/farmer-landing.png)` }}
 				className=" min-h-[8rem] py-20 bg-bottom bg-scroll"

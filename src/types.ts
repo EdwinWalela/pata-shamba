@@ -14,12 +14,7 @@ export interface CreateSurveyInitialState {
 export interface RegisterInitialState {}
 
 export interface LandDetailInitialState {
-	location: string;
-	description: string;
-	size: string;
-	phone: string;
-	price: string;
-	rate: string;
+	land: LandData;
 	isLoading: boolean;
 }
 
@@ -53,6 +48,11 @@ interface LandData {
 	price: string;
 	rate: string;
 	id: number;
+	isLoading: boolean;
+	ownerPhone: string;
+	isTitled: boolean;
+	isFenced: boolean;
+	ownerName: string;
 }
 
 export interface LoginInitialState {

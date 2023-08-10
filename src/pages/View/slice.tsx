@@ -3,13 +3,15 @@ import type { LandDetailInitialState } from '../../types';
 import api from '../../api/lands/index';
 
 const initialState = {
-	location: '',
-	description: '',
-	size: '',
-	phone: '',
-	price: '',
-	rate: '',
-	isLoading: false,
+	land: {
+		location: 'string',
+		size: 'string',
+		description: 'string',
+		price: 'string',
+		rate: 'string',
+		id: 0,
+		isLoading: false,
+	},
 } as LandDetailInitialState;
 
 export const fetchLandById = createAsyncThunk(
@@ -32,15 +34,16 @@ export const landDetailSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(fetchLandById.pending, (state, action) => {
 			state.isLoading = true;
-			console.log(action.payload);
 		});
 		builder.addCase(fetchLandById.fulfilled, (state, action) => {
 			state.isLoading = false;
-			state.description = action.payload.description;
-			state.location = action.payload.land.location.county;
-			state.description = action.payload.land.description;
-			state.price = action.payload.land.price;
-			state.phone = action.payload.phone;
+			state.land.description = action.payload.land.description;
+			state.land.location =
+				action.payload.land.location.ward + ',' + action.payload.land.location.county;
+			state.land.price = action.payload.land.price;
+			state.land.size = action.payload.land.size;
+			state.land.ownerPhone = action.payload.phone;
+			state.land.ownerName = action.payload.ownerName;
 		});
 		builder.addCase(fetchLandById.rejected, (state, action) => {
 			state.isLoading = false;
