@@ -4,11 +4,11 @@ import api from '../../api/lands/index';
 
 const initialState = {
 	land: {
-		location: 'string',
-		size: 'string',
-		description: 'string',
-		price: 'string',
-		rate: 'string',
+		location: '',
+		size: '',
+		description: '',
+		price: '',
+		rate: '',
 		id: 0,
 		isLoading: false,
 	},

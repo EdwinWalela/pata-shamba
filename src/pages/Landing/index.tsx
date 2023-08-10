@@ -9,6 +9,7 @@ const LandingPage = () => {
 	const dispatch = useAppDispatch();
 	const topPicks = useAppSelector((state) => state.landingState.topPicks);
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		dispatch(fetchTopPicks({}));
 	}, []);
 	return (

@@ -10,10 +10,24 @@ const initialState = {
 	errorMessage: '',
 	topPicks: [],
 	searchResults: [],
+	allLands: [],
 } as LandingInitialState;
 
 export const fetchTopPicks = createAsyncThunk(
 	'landing/lands',
+	async (payload: {}, { rejectWithValue }) => {
+		let res;
+		try {
+			res = await api.fetchAllLands();
+		} catch (error: any) {
+			return rejectWithValue(error.message);
+		}
+		return res.data;
+	}
+);
+
+export const fetchAllLands = createAsyncThunk(
+	'landing/lands-all',
 	async (payload: {}, { rejectWithValue }) => {
 		let res;
 		try {
@@ -73,6 +87,25 @@ export const landingSlice = createSlice({
 			state.errorMessage = '';
 		});
 		builder.addCase(searchLands.rejected, (state, action) => {
+			state.isLoading = false;
+			state.hasError = true;
+			state.errorMessage = '';
+		});
+
+		builder.addCase(fetchAllLands.pending, (state, action) => {
+			state.isLoading = true;
+			state.hasError = false;
+			state.errorMessage = '';
+		});
+		builder.addCase(fetchAllLands.fulfilled, (state, action) => {
+			state.isLoading = false;
+			state.hasError = false;
+			state.errorMessage = '';
+			let lands = action.payload;
+
+			state.allLands = lands;
+		});
+		builder.addCase(fetchAllLands.rejected, (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
 			state.errorMessage = '';

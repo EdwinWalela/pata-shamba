@@ -6,7 +6,7 @@ import Lottie from 'lottie-react';
 
 const LandListTable = (props: any) => {
 	return (
-		<div>
+		<div className="">
 			<h1 className="font-medium text-lg">Lands Pending Vetting</h1>
 			<div className="border-blue-500 border-b-4 my-2 w-20 block "></div>
 			{props.data.length == 0 && (
@@ -15,10 +15,10 @@ const LandListTable = (props: any) => {
 					<h1 className="block text-center font-medium text-lg">No Listings Available</h1>
 				</>
 			)}
-			<div className="flex">
-				{props.data.map((property: any, index: number) => (
-					<PropertyCard key={index} data={property} />
-				))}
+			<div className="flex flex-wrap">
+				{props.data.map((property: any, index: number) => {
+					return <PropertyCard key={index} data={property} />;
+				})}
 			</div>
 		</div>
 	);

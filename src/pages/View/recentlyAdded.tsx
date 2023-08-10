@@ -1,28 +1,7 @@
 import PropertyCard from '../Landing/propertyCard';
 import warningIcon from '../../assets/warning.svg';
 
-const RecentlyAdded = () => {
-	const properties = [
-		{
-			price: '250,000',
-			title: '',
-			location: 'Namanga Rd, Kitengela',
-			size: 3,
-			land: {},
-		},
-		{
-			price: '250,000',
-			title: '',
-			location: 'Namanga Rd, Kitengela',
-			size: 3,
-		},
-		{
-			price: '250,000',
-			title: '',
-			location: 'Namanga Rd, Kitengela',
-			size: 3,
-		},
-	];
+const RecentlyAdded = (props: any) => {
 	return (
 		<div className="w-1/5">
 			<div className="bg-white w-full ml-4 shadow-lg py-2 px-6 mt-5">
@@ -41,10 +20,14 @@ const RecentlyAdded = () => {
 					Report This Listing
 				</button>
 			</div>
-			{/* <h1 className="font-medium text-sm pl-6 my-4">Recently Added</h1> */}
-			{/* <PropertyCard data={properties[0]} />
-			<div className="my-5"></div>
-			<PropertyCard data={properties[0]} /> */}
+			<h1 className="font-medium text-sm pl-6 my-4">Recently Added</h1>
+			{props.data.length != 0 &&
+				props.data.slice(0, 2).map((property: any, index: any) => (
+					<>
+						<PropertyCard land={property} />
+						<div className="mt-4"></div>
+					</>
+				))}
 		</div>
 	);
 };

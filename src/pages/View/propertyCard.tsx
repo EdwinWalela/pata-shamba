@@ -14,17 +14,19 @@ import { useAppSelector } from '../../hooks';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchLandById } from './slice';
+import { fetchTopPicks } from '../Landing/slice';
 
 const PropertyCard = (props: any) => {
 	const { id } = useParams();
 	const dispatch = useAppDispatch();
 	const land = useAppSelector((state) => state.landDetail.land);
+	const recentlyAdded = useAppSelector((state) => state.landingState.topPicks);
 	const isLoading = useAppSelector((state) => state.landDetail.isLoading);
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		dispatch(fetchLandById({ id }));
-		console.log(land);
+		dispatch(fetchTopPicks({}));
 	}, []);
 
 	return (
@@ -75,7 +77,7 @@ const PropertyCard = (props: any) => {
 							</div>
 						</div>
 					</div>
-					<RecentlyAdded />
+					<RecentlyAdded data={recentlyAdded} />
 				</div>
 			)}
 			{/* <Suggestions /> */}

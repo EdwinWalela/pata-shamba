@@ -35,6 +35,7 @@ export interface LandingInitialState {
 	errorMessage: '';
 	topPicks: LandData[];
 	searchResults: LandData[];
+	allLands: LandData[];
 }
 
 export interface DashboardInitialState {

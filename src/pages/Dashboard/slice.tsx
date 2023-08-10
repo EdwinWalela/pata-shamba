@@ -38,7 +38,8 @@ export const DashboardSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(fetchPendingLands.fulfilled, (state, action) => {
-			let lands = action.payload.slice(0, 4).filter((land: any) => land.status == 'false');
+			console.log(action.payload);
+			let lands = action.payload;
 			state.pendingLands = lands;
 		});
 		builder.addCase(fetchPendingLands.rejected, (state, action) => {});
