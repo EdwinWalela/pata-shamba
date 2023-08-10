@@ -32,6 +32,15 @@ const approveLand = async (id: string) => {
 	}
 	return response.data;
 };
+const rejectLand = async (id: string) => {
+	let response;
+	try {
+		response = await axios.delete(`${BASE_URL}/lands/${id}`);
+	} catch (error: any) {
+		throw new Error(`Failed to approve land. Please try again `);
+	}
+	return response.data;
+};
 
 const searchLands = async (price: number, location: string) => {
 	let response;
@@ -48,4 +57,5 @@ export default {
 	searchLands,
 	fetchLandById,
 	approveLand,
+	rejectLand,
 };

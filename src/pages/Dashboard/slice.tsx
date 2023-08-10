@@ -32,6 +32,19 @@ export const approveLand = createAsyncThunk(
 	}
 );
 
+export const rejectLand = createAsyncThunk(
+	'landing/reject',
+	async (payload: { id: string }, { rejectWithValue }) => {
+		let res;
+		try {
+			res = await api.rejectLand(payload.id);
+		} catch (error: any) {
+			return rejectWithValue(error.message);
+		}
+		return res.data;
+	}
+);
+
 export const DashboardSlice = createSlice({
 	name: 'landing-slice',
 	initialState,
@@ -39,7 +52,7 @@ export const DashboardSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(fetchPendingLands.fulfilled, (state, action) => {
 			console.log(action.payload);
-			let lands = action.payload;
+			let lands = action.payload.filter((land: any) => land.status == 'false');
 			state.pendingLands = lands;
 		});
 		builder.addCase(fetchPendingLands.rejected, (state, action) => {});

@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import locationIcon from '../../assets/location-pin.svg';
 import { useAppDispatch } from '../../hooks';
-import { approveLand } from './slice';
+import { approveLand, rejectLand } from './slice';
 
 const PropertyCard = (props: any) => {
 	const dispatch = useAppDispatch();
@@ -11,6 +11,10 @@ const PropertyCard = (props: any) => {
 	function handleApproveLand() {
 		dispatch(approveLand({ id: id }));
 		navigate('/dashboard');
+	}
+
+	function handleRejectLand() {
+		dispatch(rejectLand({ id }));
 	}
 
 	return (
@@ -38,7 +42,7 @@ const PropertyCard = (props: any) => {
 							Approve
 						</button>
 					</NavLink>
-					<NavLink to="#" className="w-1/2">
+					<NavLink to="#" className="w-1/2" onClick={handleRejectLand}>
 						<button className="text-center block w-full my-2 py-2 bg-red-500 text-white hover:text-red-500 transition-all hover:bg-white hover:border-2 border-2 hover:border-red-500">
 							Reject
 						</button>
